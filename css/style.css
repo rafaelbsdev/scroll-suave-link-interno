@@ -11,21 +11,6 @@ dl {
   margin: 0px;
   padding: 0px;
 }
-html.fontes {
-  font-size: xx-large;
-}
-
-.azul {
-  background: teal;
-}
-
-.vermelho {
-  background: red;
-}
-
-.violeta {
-  background: violet;
-}
 
 img {
   display: block;
@@ -207,7 +192,7 @@ body {
   font-weight: bold;
 }
 
-@media (max-width: 7000px) {
+@media (max-width: 700px) {
   body {
     grid-template-columns: 1fr;
   }
@@ -284,4 +269,15 @@ body {
   to {
     opacity: 1;
   }
+}
+
+.js .js-scroll {
+  opacity: 0;
+  transform: translate3d(-30px, 0, 0);
+  transition: 0.3s;
+}
+
+.js .js-scroll.ativo {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
