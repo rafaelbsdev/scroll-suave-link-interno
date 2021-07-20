@@ -11,7 +11,7 @@ const fiat = new Carro();
 fiat.marca = "Fiat";
 fiat.preco = 3000;
 
-console.log(honda.preco);
+console.log(honda);
 
 // OUTRA FORMA DE FAZER É
 function Carros(marcas, precos) {
