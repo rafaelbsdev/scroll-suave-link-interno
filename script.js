@@ -1,90 +1,23 @@
-function initTabNav() {
-  const tabMenu = document.querySelectorAll(".js-tabmenu li");
-  const tabContent = document.querySelectorAll(".js-tabcontent section");
-
-  if (tabMenu.length && tabContent.length) {
-    tabContent[0].classList.add("ativo");
-
-    function activeTab(index) {
-      tabContent.forEach((section) => {
-        section.classList.remove("ativo");
-      });
-      tabContent[index].classList.add("ativo");
-    }
-
-    tabMenu.forEach((itemMenu, index) => {
-      itemMenu.addEventListener("click", () => {
-        activeTab(index);
-      });
-    });
-  }
+function Carro() {
+  this.marca = "Marca";
+  this.preco = 0;
 }
-initTabNav();
 
-function initAccordion() {
-  const accordionList = document.querySelectorAll(".js-accordion dt");
-  const activeClass = "ativo";
-  if (accordionList.length) {
-    accordionList[0].classList.add(activeClass);
-    accordionList[0].nextElementSibling.classList.add(activeClass);
+const honda = new Carro();
+honda.marca = "Honda";
+honda.preco = 4000;
 
-    function activeAccordion() {
-      this.classList.toggle(activeClass);
-      this.nextElementSibling.classList.toggle(activeClass);
-    }
-    accordionList.forEach((item) => {
-      item.addEventListener("click", activeAccordion);
-    });
-  }
+const fiat = new Carro();
+fiat.marca = "Fiat";
+fiat.preco = 3000;
+
+console.log(honda.preco);
+
+// OUTRA FORMA DE FAZER É
+function Carros(marcas, precos) {
+  this.marca1 = marcas;
+  this.preco1 = precos;
 }
-initAccordion();
 
-function initScrollSuave() {
-  const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
-
-  // aqui pegou tanto o id quando o diret�rio p onde iria
-  function scrollToSection(event) {
-    event.preventDefault();
-    const href = event.currentTarget.getAttribute("href");
-    const section = document.querySelector(href);
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-
-    /*   const topo = section.offsetTop;
- FORMA ALTERNATIVA
-  window.scrollTo({
-    top: topo,
-    behavior: "smooth"
-  }); */
-  }
-
-  linksInternos.forEach((link) => {
-    link.addEventListener("click", scrollToSection);
-  });
-}
-initScrollSuave();
-
-const sections = document.querySelectorAll(".js-scroll");
-
-function initAnimacaoScroll() {
-  if (sections.length) {
-    const windowMetade = window.innerHeight * 0.61;
-
-    function animaScroll() {
-      sections.forEach((section) => {
-        const sectionTop = section.getBoundingClientRect().top;
-        const isSectionVisible = sectionTop - windowMetade;
-        if (isSectionVisible < 0) {
-          section.classList.add("ativo");
-        } else section.classList.remove("ativo");
-      });
-    }
-
-    animaScroll();
-
-    window.addEventListener("scroll", animaScroll);
-  }
-}
-initAnimacaoScroll();
+const honda1 = new Carros("Honda1", 5000);
+const fiat1 = new Carros("Fiat1", 7000);
